@@ -1,0 +1,25 @@
+{
+    "name": "arab/xpeed",
+    "description": "Xpeed Test",
+    "authors": [
+        {
+            "name": "Arab Hossain",
+            "email": "green.arab1995@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "files": [
+            "configs/configs.php"
+        ],
+        "psr-4": {
+            "Configs\\": "configs/",
+            "Helpers\\": "core/helpers",
+            "DB\\": "core/database",
+            "App\\": "app/",
+            "Xpeed\\" : "core/xpeed/",
+            "Interfaces\\" : "core/interfaces/"
+
+        }
+    }
+}

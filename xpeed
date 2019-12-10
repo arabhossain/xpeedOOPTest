@@ -1,0 +1,33 @@
+#!/usr/bin/env php
+
+<?php
+
+    $server_host = '127.0.0.1:8000';
+
+    function server_run(){
+
+        global $server_host;
+
+        echo 'Xpeed application is starting...', PHP_EOL;
+        echo 'Server started at http://'.$server_host, PHP_EOL;
+        echo 'To stop server try ctrl+c',PHP_EOL,PHP_EOL;
+
+        if (substr(php_uname(), 0, 7) == "Windows"){
+            //windows
+            echo pclose(popen("start /B " . $server_host));
+        }else{
+            //linux
+            echo shell_exec('php -S '.$server_host);
+        }
+    }
+
+if($argc > 1){
+    if($argv[1] == 'run'){
+        server_run();
+    }elseif($argv[1] == 'install'){
+        include_once __DIR__.'/install/install.php';
+        echo 'Table created successfully install successfully', PHP_EOL;
+        echo 'To stop server please type \'php xpeed run\'', PHP_EOL;
+    }
+}
+
